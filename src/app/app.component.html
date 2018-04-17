@@ -4,8 +4,8 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="../">
-            <img src="../images/bulma.png" alt="Logo">
+          <a class="navbar-item" routerLink='/home'>
+            <span>thezachcannon</span>
           </a>
           <span class="navbar-burger burger" data-target="navbarMenu">
             <span></span>
@@ -17,20 +17,17 @@
           <div class="navbar-end">
             <div class="tabs is-right">
               <ul>
-                <li class="is-active">
-                  <a>Home</a>
+                <li>
+                  <a routerLink='/home'>Home</a>
                 </li>
                 <li>
-                  <a href="">Examples</a>
+                  <a routerLink='/about'>About</a>
                 </li>
                 <li>
-                  <a href="">Features</a>
+                  <a routerLink='/resume'>Resume</a>
                 </li>
                 <li>
-                  <a href="">Team</a>
-                </li>
-                <li>
-                  <a href="">Help</a>
+                  <a routerLink='/code'>Code</a>
                 </li>
               </ul>
             </div>
@@ -40,30 +37,7 @@
     </nav>
   </div>
   <div class="hero-body">
-    <div class="container has-text-centered">
-      <div class="columns is-vcentered">
-        <div class="column is-5">
-          <figure class="image is-4by3">
-            <img src="assets/images/main.jpg" style='transform: rotate(90deg)' alt="Description">
-          </figure>
-        </div>
-        <br>
-        <div class="column is-6 is-offset-1">
-          <h1 class="title is-2">
-            Zachary Cannon
-          </h1>
-          <h2 class="subtitle is-4">
-            Christian. Husband. Father. Developer.
-          </h2>
-          <br>
-          <p class="has-text-centered">
-            <a class="button is-medium is-info is-outlined">
-              Learn more
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
+      <router-outlet></router-outlet>
   </div>
 
   <div class="hero-foot">
