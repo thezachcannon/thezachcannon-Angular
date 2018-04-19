@@ -7,29 +7,25 @@
           <a class="navbar-item" routerLink='/home'>
             <span>thezachcannon</span>
           </a>
-          <span class="navbar-burger burger" data-target="navbarMenu">
+          <span class="navbar-burger burger" data-target="navbarMenu" (click)='openNavMenu()' [ngClass]='{"is-active" : navBarOpen}'>
             <span></span>
             <span></span>
             <span></span>
           </span>
         </div>
-        <div id="navbarMenu" class="navbar-menu">
+        <div id="navbarMenu" class="navbar-menu" [ngClass]='{"is-active" : navBarOpen}'>
           <div class="navbar-end">
-            <div class="tabs is-right">
-              <ul>
-                <li>
-                  <a routerLink='/home'>Home</a>
-                </li>
-                <li>
-                  <a routerLink='/about'>About</a>
-                </li>
-                <li>
-                  <a routerLink='/resume'>Resume</a>
-                </li>
-                <li>
-                  <a routerLink='/code'>Code</a>
-                </li>
-              </ul>
+            <div class='navbar-item'>
+              <a routerLink='/home' (click)='navBarOpen = false'>Home</a>
+            </div>
+            <div class='navbar-item' >
+              <a routerLink='/about' (click)='navBarOpen = false'>About</a>
+            </div>
+            <div class='navbar-item'>
+              <a routerLink='/resume' (click)='navBarOpen = false'>Resume</a>
+            </div>
+            <div class='navbar-item'>
+              <a routerLink='/code' (click)='navBarOpen = false'>Code</a>
             </div>
           </div>
         </div>
@@ -37,7 +33,7 @@
     </nav>
   </div>
   <div class="hero-body">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 
   <div class="hero-foot">
@@ -45,7 +41,7 @@
       <div class="tabs is-centered">
         <ul>
           <li>
-              Continuously Innovating...
+            Continuously Innovating...
           </li>
         </ul>
       </div>

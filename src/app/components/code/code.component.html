@@ -1,3 +1,60 @@
-<p>
-  code works!
-</p>
+<div class='container'>
+  <div class='columns' *ngIf='myInfo && myRepos'>
+    <div class='column is-3 has-text-centered' >
+      <img [src]='myInfo.avatar_url'>
+      <p>
+        {{myInfo.login}}
+        <br> {{myInfo.bio}}
+      </p>
+    </div>
+    <div class='column is-9'>
+      <div class='box'>
+        <h1 class='title is-3'>
+            Personal Projects <span class='is-pulled-right' (click)='personalCollapsed = !personalCollapsed'><i class='fa' [ngClass]='{"fa-chevron-down": !personalCollapsed, "fa-chevron-up": personalCollapsed}'></i></span>          
+        </h1>
+        <ul *ngIf='!personalCollapsed'>
+          <li>
+            <a href='https://www.scmozarks.com' target="_blank">SCMOzarks</a>
+          </li>
+          <li>
+              <a href='https://www.keeplotech.com' target="_blank">KeeploTech, LLC</a>
+            </li>
+            <li>
+                <a href='https://www.pokevue.thezachcannon.com' target="_blank">PokeVue</a>
+            </li>
+            <li>
+              ...More coming soon...
+            </li>
+        </ul>
+      </div>
+      <div class='box'>
+          <h1 class='title is-3'>
+            Github Projects <span class='is-pulled-right' (click)='gitCollapsed = !gitCollapsed'><i class='fa' [ngClass]='{"fa-chevron-down": !gitCollapsed, "fa-chevron-up": gitCollapsed}'></i></span>
+          </h1>
+          <table class='table is-striped' *ngIf='!gitCollapsed'>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th class='is-hidden-mobile'>Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let repo of myRepos'>
+                  <td>
+                    <a [href]='repo.html_url' target="_blank">{{repo.name}}</a>
+                  </td>
+                  <td>
+                    {{repo.description}}
+                  </td>
+                  <td class='is-hidden-mobile'>
+                    {{repo.updated_at | date: 'MM/dd/yyy'}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+
+    </div>  
+  </div>
+</div>

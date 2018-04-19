@@ -7,7 +7,11 @@ import { Component} from '@angular/core';
 })
 export class AppComponent{
   title = 'app';
+  navBarOpen = false;
 
+  openNavMenu(){
+    this.navBarOpen = !this.navBarOpen
+  }
 
   
 }

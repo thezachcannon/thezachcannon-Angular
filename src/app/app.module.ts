@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 //Vendor
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -11,6 +12,8 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { AboutComponent } from './components/about/about.component';
 import { CodeComponent } from './components/code/code.component';
 
+//Services
+import {CodeService} from './services/code.service'
 
 
 
@@ -48,13 +51,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     PdfViewerModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false, useHash: true }, // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [CodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
